@@ -24,10 +24,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func convertHumanYearsToDogYears(sender: UIButton) {
-        let integerOfHumanYear = humanYear.text.toInt()!
-        let conversionConstant = 7
+        let doubleValueOfHumanYear = Double((humanYear.text as NSString).doubleValue)
+        var doubleValueDogYear: Double
+        if doubleValueOfHumanYear <= 2 {
+            doubleValueDogYear = doubleValueOfHumanYear * 10.5
+        }
+        else {
+            doubleValueDogYear = 21 + (doubleValueOfHumanYear - 2) * 4
+        }
         dogYear.hidden = false
-        dogYear.text = "\(integerOfHumanYear * conversionConstant)"
+        dogYear.text = "\(doubleValueDogYear)"
     }
     
     
